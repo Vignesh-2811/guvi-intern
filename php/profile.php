@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Profile Page</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -64,7 +64,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Personal Information</h5>
-            <form action="code.php" method="POST" id="profileForm"> 
+            <!-- <form action="code.php" method="POST" id="profileForm">  -->
               <div class="form-group">
                 <label for="fullName">Full Name</label>
                 <input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter your full name" value="<?= $data['fullname']?>">
@@ -109,7 +109,7 @@
 
                 
               <button type="submit" class="btn btn-primary" name = "editbtn" id = "editbtn">Edit</button>
-              </form>
+              <!-- </form> -->
           </div>
         </div>
       </div>

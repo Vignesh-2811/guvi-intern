@@ -46,6 +46,8 @@ else {
 
   echo "Profile added successfully";
 }
+header("Location: profile.php");
 }
+
 
 ?>
