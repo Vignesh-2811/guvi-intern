@@ -31,6 +31,17 @@
         exit;
     }
 
+    // check if the email address already exists in the database
+    $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        $response = array('status' => 'error', 'errors' => array('Email address already exists'));
+        echo json_encode($response);
+        exit;
+    }
+
     // prepare the SQL statement
     $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
 

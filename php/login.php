@@ -1,6 +1,10 @@
 <?php
     include "../php/config/dbconnection.php";
 
+    // Connect to Redis server
+    // $redis = new Redis();
+    // $redis->connect('localhost', 6379);
+
     // retrieve the form data
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -54,10 +58,19 @@
         exit;
     }
 
-    // start the session and set the user data
     session_start();
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['user_email'] = $user['email'];
+    $_SESSION['email'] = $email;
+
+
+
+    // generate a session token
+    // $session_token = bin2hex(random_bytes(32));
+
+    // store the user data and session token in Redis
+    // $redis->setex("session:$session_token", 3600, json_encode($user));
+
+    // set the session token in the browser's local storage
+    // echo "<script>localStorage.setItem('session_token', '$session_token');</script>";
 
     // redirect to the dashboard page
     $response = array('status' => 'success', 'message' => 'Login successful!');
